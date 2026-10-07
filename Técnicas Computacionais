@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missão IA: Funções</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #10172a;
+      color: #f4f7ff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 48px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #5526a8, #087eaa);
+    }
+
+    header h1 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    header p {
+      max-width: 650px;
+      margin: auto;
+      color: #e3eaff;
+    }
+
+    main {
+      width: min(900px, 92%);
+      margin: 32px auto;
+    }
+
+    section {
+      margin-bottom: 24px;
+      padding: 24px;
+      background: #1b2540;
+      border: 1px solid #344366;
+      border-radius: 14px;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: #7ee7ff;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .missao {
+      border-left: 5px solid #7ee7ff;
+    }
+
+    .pergunta {
+      margin: 18px 0;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 8px;
+      background: #7ee7ff;
+      color: #10172a;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #a4f0ff;
+    }
+
+    #resultado {
+      margin-top: 16px;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 22px;
+      text-align: center;
+      color: #bdc9e5;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🤖 Missão IA: Funções</h1>
+    <p>
+      Explore como a Inteligência Artificial funciona e descubra como ela
+      pode ajudar a resolver desafios do mundo real.
+    </p>
+  </header>
+
+  <main>
+    <section class="missao">
+      <h2>🎯 Sua missão</h2>
+      <p>
+        Você faz parte de uma equipe de exploradores digitais. Sua tarefa é
+        entender o que é Inteligência Artificial, identificar suas funções e
+        propor uma forma responsável de usá-la.
+      </p>
+    </section>
+
+    <section>
+      <h2>📚 O que é Inteligência Artificial?</h2>
+      <p>
+        Inteligência Artificial (IA) é uma área da tecnologia que desenvolve
+        sistemas capazes de realizar tarefas que normalmente exigem habilidades
+        humanas, como reconhecer imagens, compreender textos e fazer previsões.
+      </p>
+    </section>
+
+    <section>
+      <h2>🧠 Algumas funções da IA</h2>
+      <ul>
+        <li><strong>Reconhecer padrões:</strong> identificar objetos em imagens.</li>
+        <li><strong>Compreender linguagem:</strong> responder perguntas e traduzir textos.</li>
+        <li><strong>Fazer previsões:</strong> estimar resultados usando dados.</li>
+        <li><strong>Recomendar conteúdos:</strong> sugerir músicas, filmes ou produtos.</li>
+        <li><strong>Automatizar tarefas:</strong> ajudar a realizar atividades repetitivas.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🗺️ Etapas da missão</h2>
+      <ol>
+        <li>Leia as informações sobre Inteligência Artificial.</li>
+        <li>Observe exemplos de IA no seu cotidiano.</li>
+        <li>Responda ao desafio abaixo.</li>
+        <li>Converse com sua turma sobre o uso responsável da tecnologia.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>🧩 Desafio rápido</h2>
+
+      <div class="pergunta">
+        <p><strong>1. Qual opção é um exemplo de função da IA?</strong></p>
+        <label><input type="radio" name="q1" value="certa"> Reconhecer objetos em uma imagem</label>
+        <label><input type="radio" name="q1" value="errada"> Carregar uma mochila</label>
+      </div>
+
+      <div class="pergunta">
+        <p><strong>2. A IA deve ser usada com responsabilidade?</strong></p>
+        <label><input type="radio" name="q2" value="certa"> Sim, considerando privacidade e possíveis erros</label>
+        <label><input type="radio" name="q2" value="errada"> Não, ela sempre está correta</label>
+      </div>
+
+      <button onclick="verificarRespostas()">Conferir respostas</button>
+      <p id="resultado" aria-live="polite"></p>
+    </section>
+
+    <section>
+      <h2>💡 Pense e compartilhe</h2>
+      <p>
+        Escolha uma situação da escola ou da comunidade em que a IA poderia
+        ajudar. Que dados seriam necessários? Quais cuidados deveriam ser tomados?
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projeto educativo • Inteligência Artificial e suas funções</p>
+  </footer>
+
+  <script>
+    function verificarRespostas() {
+      const resposta1 = document.querySelector('input[name="q1"]:checked');
+      const resposta2 = document.querySelector('input[name="q2"]:checked');
+      const resultado = document.getElementById("resultado");
+
+      if (!resposta1 || !resposta2) {
+        resultado.textContent = "Responda às duas perguntas antes de conferir.";
+        resultado.style.color = "#ffd166";
+        return;
+      }
+
+      let pontos = 0;
+      if (resposta1.value === "certa") pontos++;
+      if (resposta2.value === "certa") pontos++;
+
+      resultado.textContent =
+        pontos === 2
+          ? "🎉 Missão cumprida! Você acertou as duas respostas."
+          : `Você acertou ${pontos} de 2. Revise o conteúdo e tente novamente.`;
+
+      resultado.style.color = pontos === 2 ? "#7dffad" : "#ffd166";
+    }
+  </script>
+</body>
+</html>
